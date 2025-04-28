@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atari"
+version = "0.1.0"
+description = "AlternaTe Allele Read vIsualizer - A tool for analyzing genomic data from BAM files"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Samarth Mathur", email = "samarth8392@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3", 
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "pandas",
+    "pysam",
+    "matplotlib",
+    "numpy",
+    "tqdm",
+    "rich",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/samarth8392/atari"
+"Bug Tracker" = "https://github.com/samarth8392/atari/issues"
+
+[project.scripts]
+atari = "atari.cli:main"

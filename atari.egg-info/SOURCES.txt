@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+atari/__init__.py
+atari/cli.py
+atari/core.py
+atari/setup.py
+atari/utils.py
+atari/visualize.py
+atari.egg-info/PKG-INFO
+atari.egg-info/SOURCES.txt
+atari.egg-info/dependency_links.txt
+atari.egg-info/entry_points.txt
+atari.egg-info/requires.txt
+atari.egg-info/top_level.txt
+tests/test_core.py
