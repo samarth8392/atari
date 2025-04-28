@@ -43,11 +43,12 @@ Requirements:
 - tqdm
 - rich
 
-> Ensure BAM and FASTA files are indexed (.bai, .fai).
-
 ---
 
 ## 🚀 Quick Start
+
+> Ensure BAM and FASTA files are indexed (.bai, .fai).
+
 ### 1. Basic Usage
 
 ```bash
@@ -99,19 +100,20 @@ python atari.py \
   --verbose
 ```
 
-Argument | Description | Required
---bam | BAM file(s) (indexed) | ✅
---reference | Reference FASTA (indexed) | ✅
---bed | BED file with regions | ➡️ (or --chromosome)
---chromosome | Chromosome name (e.g., chr1) | ➡️ (or --bed)
---start, --end | Region coordinates (if using --chromosome) | ✅
---window | Window size in bp for summarization | ✅
---output | Output file name (TSV) | ✅
---plot | Generate plot | Optional
---plot-output | Plot output file | Optional
---gtf | Gene annotations (GTF format) | Optional
---verbose | Verbose mode | Optional
-...and many more! (see --help) |  | 
+| Argument | Description | Required |
+| --- | --- | --- |
+| --bam | BAM file(s) (indexed) | ✅ |
+| --reference | Reference FASTA (indexed) | ✅ |
+| --bed | BED file with regions | ➡️ (or --chromosome) |
+| --chromosome | Chromosome name (e.g., chr1) | ➡️ (or --bed) |
+| --start, --end | Region coordinates (if using --chromosome) | ✅ |
+| --window | Window size in bp for summarization | ✅ |
+| --output | Output file name (TSV) | ✅ |
+| --plot | Generate plot | Optional |
+| --plot-output | Plot output file | Optional |
+| --gtf | Gene annotations (GTF format) | Optional |
+| --verbose | Verbose mode | Optional |
+| ...and many more! (see --help) |  |  |
 
 
 ### 🐛 Troubleshooting
