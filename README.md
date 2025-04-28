@@ -28,9 +28,10 @@ It uses `pysam` for BAM parsing, `matplotlib` for plotting, and supports flexibl
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/atari.git
-cd atari
-pip install -r requirements.txt
+pip install atari
+
+# GitHub Installation
+pip install git+https://github.com/samarth8392/atari.git
 ```
 
 Requirements:
