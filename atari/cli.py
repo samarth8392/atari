@@ -192,7 +192,7 @@ def parse_arguments() -> argparse.Namespace:
     
     return args
 
-def run_main():
+def run_main(args):
     """Run the main processing functions with the parsed arguments."""
     args = parse_arguments()
     
