@@ -7,7 +7,7 @@ from typing import List, Dict, Tuple, Optional, Any
 from tqdm import tqdm
 from rich.console import Console
 
-from .utils import get_total_regions_size, parse_bed_file, parse_gtf_file
+from .utils import get_total_regions_size
 
 console = Console()
 
@@ -58,31 +58,33 @@ def count_alleles(bam_file: str, reference_fasta: str, chromosome: str, start_po
         
         # Initialize counters
         base_counts = {'A': 0, 'C': 0, 'G': 0, 'T': 0, 'N': 0, 'DEL': 0, 'INS': 0}
-        coverage = 0
+        coverage = 0  # Will count only quality-filtered reads
         
         # Pileup at the current position
         for pileupcolumn in samfile.pileup(chromosome, pos-1, pos, truncate=True, min_base_quality=min_base_quality):
             if pileupcolumn.pos != pos-1:
                 continue
                 
-            coverage = pileupcolumn.n
-            
             # Process each read
             for pileupread in pileupcolumn.pileups:
                 # Skip low quality reads
                 if pileupread.alignment.mapping_quality < min_mapping_quality:
                     continue
                 
+                # Count this read toward coverage (after quality filtering)
+                coverage += 1
+                
                 # Count deletions
                 if pileupread.is_del:
                     base_counts['DEL'] += 1
-                    continue
+                    continue  # Skip to next read
                 
-                # Count insertions
+                # Count insertions (and skip base counting for this read)
                 if pileupread.indel > 0:
                     base_counts['INS'] += 1
+                    continue  # Skip to next read - don't double count
                 
-                # Get base
+                # Get base (only for non-indel reads)
                 if pileupread.query_position is None:
                     continue
                     
@@ -105,7 +107,7 @@ def count_alleles(bam_file: str, reference_fasta: str, chromosome: str, start_po
             'CHROM': chromosome,
             'POS': pos,
             'REF': ref_base,
-            'DP': coverage,
+            'DP': coverage,  # Now matches quality-filtered read count
             'Ref_reads': ref_count,
             'Alt_reads': total_alt_count,
             'A_count': base_counts['A'],
