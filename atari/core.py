@@ -13,7 +13,7 @@ console = Console()
 
 def count_alleles(bam_file: str, reference_fasta: str, chromosome: str, start_pos: int, end_pos: int, 
                   min_mapping_quality: int = 20, min_base_quality: int = 20, 
-                  progress_callback=None) -> List[Dict[str, Any]]:
+                  progress_callback=None) -> List[Dict]:
     """
     Count reference and alternate alleles at each position in a region.
     

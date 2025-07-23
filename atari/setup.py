@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="atari",
-    version="0.1.2",
+    version="0.1.3",
     author="Samarth Mathur",
     author_email="samarth8392@gmail.com",
     description="AlternaTe Allele Read vIsualizer",
