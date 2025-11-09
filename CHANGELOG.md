@@ -1,5 +1,10 @@
 # ATARI development version
 
+## ATARI 0.1.4
+
+fix: 'get_total_regions_size' nameError
+
+- 
 ## ATARI 0.1.3
 
 fix: correct coverage calculation and insertion double-counting
