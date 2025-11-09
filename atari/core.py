@@ -135,7 +135,7 @@ def process_regions(bam_files: List[str], reference_fasta: str, regions: List[Di
     all_results = []
     
     # Calculate the total work - number of positions to process
-    total_positions = get_total_regions_size(regions) * len(bam_files)
+    total_positions = sum(r['end'] - r['start'] + 1 for r in regions) * len(bam_files)
     positions_processed = 0
     
     # Create progress bar based on total positions
