@@ -210,7 +210,6 @@ def run_main(args):
         console.print(f"Reference genome: [bold]{args.reference}[/bold]", style="green")
         console.print(f"Number of BAM files: [bold]{len(args.bam)}[/bold]", style="green")
         console.print(f"Number of regions: [bold]{len(regions)}[/bold]", style="green")
-        console.print(f"Total positions to analyze: [bold]{get_total_regions_size(regions) * len(args.bam):,}[/bold]", style="green")
     
     # Process regions
     results_df = process_regions(
