@@ -7,8 +7,6 @@ from typing import List, Dict, Tuple, Optional, Any
 from tqdm import tqdm
 from rich.console import Console
 
-from .utils import get_total_regions_size
-
 console = Console()
 
 def count_alleles(bam_file: str, reference_fasta: str, chromosome: str, start_pos: int, end_pos: int, 

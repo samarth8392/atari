@@ -22,14 +22,6 @@ def parse_bed_file(bed_file: str) -> List[Dict[str, any]]:
     return regions
 
 
-def get_total_regions_size(regions: List[Dict[str, any]]) -> int:
-    """Calculate total size of all regions."""
-    total_size = 0
-    for region in regions:
-        total_size += region['end'] - region['start'] + 1
-    return total_size
-
-
 def parse_gtf_file(gtf_file: str) -> Dict[str, List[Dict]]:
     """Parse gene and exon information from a GTF file.
     
